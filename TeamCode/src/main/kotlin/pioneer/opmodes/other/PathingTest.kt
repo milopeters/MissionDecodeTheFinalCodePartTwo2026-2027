@@ -3,14 +3,13 @@ package pioneer.opmodes.other
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous
 import pioneer.Bot
 import pioneer.BotType
-import pioneer.decode.Points
+import pioneer.biobuzz.Points
 import pioneer.general.AllianceColor
 import pioneer.helpers.DashboardPlotter
 import pioneer.helpers.Pose
 import pioneer.opmodes.BaseOpMode
 import pioneer.pathing.motionprofile.constraints.VelocityConstraint
 import pioneer.pathing.paths.HermitePath
-import pioneer.pathing.paths.LinearPath
 import kotlin.math.PI
 import kotlin.math.hypot
 

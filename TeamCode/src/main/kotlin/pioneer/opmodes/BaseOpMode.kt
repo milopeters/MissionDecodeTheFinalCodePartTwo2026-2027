@@ -47,8 +47,6 @@ abstract class BaseOpMode : OpMode() {
         // Transfer data
         bot.allianceColor = Constants.TransferData.allianceColor
         bot.pinpoint?.reset(Constants.TransferData.pose)
-        bot.turret?.resetMotorPosition(Constants.TransferData.turretMotorTicks)
-        bot.spindexer?.resetMotorPosition(Constants.TransferData.spindexerMotorTicks)
     }
 
     final override fun start() {
@@ -79,8 +77,6 @@ abstract class BaseOpMode : OpMode() {
         // Transfer data
         Constants.TransferData.allianceColor = bot.allianceColor
         Constants.TransferData.pose = bot.pinpoint?.pose ?: Pose()
-        Constants.TransferData.turretMotorTicks = bot.turret?.currentTicks ?: 0
-        Constants.TransferData.spindexerMotorTicks = bot.spindexer?.currentMotorTicks ?: 0
 
         bot.led?.clear()
         bot.mecanumBase?.stop() // Ensure motors are stopped

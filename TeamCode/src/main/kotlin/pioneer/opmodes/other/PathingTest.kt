@@ -35,7 +35,6 @@ class PathingTest : BaseOpMode() {
 
     override fun onStart() {
         bot.pinpoint?.reset(P.START_FAR)
-        bot.intake?.forward()
         bot.follower.reset()
     }
 

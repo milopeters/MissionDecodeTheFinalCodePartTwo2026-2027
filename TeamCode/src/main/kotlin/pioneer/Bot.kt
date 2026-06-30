@@ -4,23 +4,15 @@ import com.qualcomm.robotcore.hardware.HardwareMap
 import pioneer.general.AllianceColor
 import pioneer.hardware.BatteryMonitor
 import pioneer.hardware.Camera
-import pioneer.hardware.Flywheel
 import pioneer.hardware.HardwareComponent
-import pioneer.hardware.Intake
 import pioneer.hardware.LED
-import pioneer.hardware.LaunchServos
-import pioneer.hardware.Launcher
 import pioneer.hardware.MecanumBase
-import pioneer.hardware.PTOServo
-import pioneer.hardware.spindexer.Spindexer
-import pioneer.hardware.Turret
 import pioneer.localization.localizers.Pinpoint
 import pioneer.pathing.follower.Follower
 import pioneer.vision.AprilTag
 
 enum class BotType {
     MECANUM_BOT,
-    GOBILDA_STARTER_BOT,
     COMP_BOT,
     CUSTOM,
 }
@@ -44,15 +36,8 @@ class Bot private constructor(
     // Property-style access for known components
     val mecanumBase get() = get<MecanumBase>()
     val pinpoint get() = get<Pinpoint>()
-    val launchServos get() = get<LaunchServos>()
-    val flywheel get() = get<Flywheel>()
-    val turret get() = get<Turret>()
-    val intake get() = get<Intake>()
     val camera get() = get<Camera>()
     val batteryMonitor get() = get<BatteryMonitor>()
-    val spindexer get() = get<Spindexer>()
-    val launcher get() = get<Launcher>()
-    val servosPTO get() = get<PTOServo>()
     val led get() = get<LED>()
 
     // Follower is lazily initialized (only if accessed)
@@ -83,25 +68,10 @@ class Bot private constructor(
                         .add(Pinpoint(hardwareMap))
                         .add(BatteryMonitor(hardwareMap))
                         .build()
-                BotType.GOBILDA_STARTER_BOT ->
-                    builder()
-                        .add(MecanumBase(hardwareMap))
-                        .add(Pinpoint(hardwareMap))
-                        .add(LaunchServos(hardwareMap))
-                        .add(Flywheel(hardwareMap))
-                        .add(Camera(hardwareMap, processors = arrayOf(AprilTag().processor)))
-                        .add(BatteryMonitor(hardwareMap))
-                        .build()
                 BotType.COMP_BOT ->
                     builder()
                         .add(MecanumBase(hardwareMap))
                         .add(Pinpoint(hardwareMap))
-                        .add(Flywheel(hardwareMap))
-                        .add(Intake(hardwareMap))
-                        .add(Turret(hardwareMap))
-                        .add(Spindexer(hardwareMap))
-//                        .add(PTOServo(hardwareMap))
-                        .add(Launcher(hardwareMap))
                         .add(LED(hardwareMap))
                         .add(Camera(hardwareMap, processors = arrayOf(AprilTag().processor)))
                         .add(BatteryMonitor(hardwareMap))

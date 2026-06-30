@@ -4,8 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp
 import org.firstinspires.ftc.vision.apriltag.AprilTagProcessor
 import pioneer.Bot
-import pioneer.decode.GoalTag
-import pioneer.decode.GoalTagProcessor
+import pioneer.biobuzz.GoalTag
+import pioneer.biobuzz.GoalTagProcessor
 import pioneer.hardware.Camera
 import pioneer.opmodes.BaseOpMode
 import pioneer.vision.AprilTag
